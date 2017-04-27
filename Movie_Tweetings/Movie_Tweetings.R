@@ -10,9 +10,11 @@
 
 # In[1]:
 
+rm(list=ls())
+
 URL = "https://raw.githubusercontent.com/sidooms/MovieTweetings/master/latest/ratings.dat"
 
-Ratings = read.table( URL, sep = ":", header=FALSE )[,c(1,3,5,7)]
+Ratings = read.table( URL, sep = ":", header=FALSE ) [,c(1,3,5,7)]
 colnames(Ratings) = c("UserID", "MovieID", "Rating", "TwitterID")
 
 head(Ratings)
@@ -71,9 +73,11 @@ library(MASS)
 
 # In[8]:
 
-hist( Ratings$Rating, probability=TRUE, border=NA, col="palegreen", breaks=0:11 )
+hist( Ratings$Rating, probability=TRUE, border=1, col="palegreen", breaks=0:11 )
 
 MLEparameters = fitdistr( Ratings$Rating+1, "lognormal" )
+
+MLEparameters
 
 curve( dlnorm(x+0.5, meanlog=MLEparameters$estimate[1], sdlog=MLEparameters$estimate[2]), col="red", add=TRUE )  # doesn't fit very well
 

@@ -1,0 +1,8 @@
+0.5397626 , qda( cut ~ .,           data=my.training.set ) 
+0.9060584 , lm(  price ~ .,         data=my.training.set ) 
+0.9776148 , lm(  log10(price) ~ .,  data=my.training.set ) 
+0.9784125 , glm( I(price>1500) ~ ., data=my.training.set, family=binomial ) 
+0.6301187 , qda( cut ~ price + table + color + clarity, data=my.training.set ) 
+0.9587075 , lm( price ~ (carat + cut + color + clarity + depth + table)^2 + x + y + z, data=my.training.set ) 
+0.981834 , lm(log10(price) ~ (carat + cut + color + clarity + depth + table)^2 + log10(x) + log10(y) + log10(z), data=my.training.set) 
+0.9847923 , glm( I(price>1500) ~ (carat + cut + color + clarity + depth + table)^2, data=my.training.set, family=binomial )
